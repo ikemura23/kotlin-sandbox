@@ -18,7 +18,7 @@ interface AppComponent {
 
     fun hoge(): Hoge
 
-    fun hogeProvider(): Provider<Hoge>
+    fun fugaProvider(): Provider<Fuga>
 
     fun application(): Application
 }
