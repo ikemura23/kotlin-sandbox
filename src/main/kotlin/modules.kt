@@ -5,16 +5,9 @@ import javax.inject.Scope
 
 // クラスのモジュール
 @Module
-class AppModule {
-    @Provides
-    fun provideHoge(): Hoge {
-        return Hoge()
-    }
-
-    @Provides
-    fun provideFuga(hoge: Hoge): Fuga {
-        return Fuga(hoge)
-    }
+interface AppModule {
+    @Binds
+    fun provideHoge(hoge: Hoge): IHoge
 }
 
 // objectのモジュール
@@ -22,14 +15,16 @@ class AppModule {
 object HogeModule {
 //    @JvmStatic
 //    @Provides
-//    internal fun provideHoge(): Hoge {
+//     fun provideHoge(): IHoge {
 //        return Hoge()
 //    }
 }
 
 // interfaceのモジュール
 @Module
-abstract class InterfaceModule {
-//    @Binds
-//    abstract fun provideFuga(hoge: Hoge): Fuga
+class InterfaceModule {
+    @Provides
+    fun provideFuga(hoge: Hoge): Fuga {
+        return Fuga(hoge)
+    }
 }
