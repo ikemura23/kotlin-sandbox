@@ -23,7 +23,7 @@ object HogeModule {
 @Module
 class InterfaceModule {
     @Provides
-    fun provideFuga(hoge: Hoge): Fuga {
+    fun provideFuga(hoge: Hoge): IFuga {
         return Fuga(hoge)
     }
 }

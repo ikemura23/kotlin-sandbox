@@ -16,5 +16,7 @@ interface IHoge
 class Hoge @Inject constructor() : IHoge {
 }
 
-class Fuga @Inject constructor(val hoge: Hoge) {
+interface IFuga
+
+class Fuga @Inject constructor(val hoge: Hoge) : IFuga {
 }
