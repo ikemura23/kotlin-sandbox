@@ -1,16 +1,15 @@
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import javax.inject.Scope
 
-// クラスのモジュール
+// interfaceパターン
 @Module
 interface AppModule {
     @Binds
     fun provideHoge(hoge: Hoge): IHoge
 }
 
-// objectのモジュール
+// objectパターン
 @Module
 object HogeModule {
 //    @JvmStatic
@@ -20,11 +19,20 @@ object HogeModule {
 //    }
 }
 
-// interfaceのモジュール
+// classパターン
 @Module
 class InterfaceModule {
     @Provides
     fun provideFuga(hoge: Hoge): Fuga {
         return Fuga(hoge)
     }
+}
+
+// abstract classパターン
+@Module
+abstract class AbstractModule {
+//    companion object {
+//        @Provides // @JvmStaticが不要になる
+//        fun provideHoge(): IHoge = Hoge()
+//    }
 }

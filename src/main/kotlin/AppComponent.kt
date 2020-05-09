@@ -6,7 +6,8 @@ import javax.inject.Provider
     modules = [
         AppModule::class,
         HogeModule::class,
-        InterfaceModule::class
+        InterfaceModule::class,
+        AbstractModule::class
     ]
 )
 interface AppComponent {
