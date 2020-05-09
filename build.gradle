@@ -9,11 +9,15 @@ repositories {
     mavenCentral()
 }
 apply plugin: 'kotlin-kapt'
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     // Dagger
     implementation "com.google.dagger:dagger:2.27"
     kapt "com.google.dagger:dagger-compiler:2.27"
+}
+kapt {
+    generateStubs = true
 }
 
 compileKotlin {
