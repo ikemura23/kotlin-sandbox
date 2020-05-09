@@ -1,17 +1,18 @@
 import javax.inject.Inject
 
-class Application @Inject constructor(private val component: AppComponent) {
-//    init {
-//        DaggerAppComponent.factory().create(this)
-//    }
+// コンストラクタパターン
+class Application @Inject constructor(var fuga: Fuga) {
+
+    // Injectパターン
+    // @Inject lateinit var fuga: Fuga
 
     fun start() {
-        println("Application:start $component")
-        val hoge = DaggerAppComponent.factory().create().hoge()
-        println("Application:start $hoge")
+        println("Application:start $fuga.hoge")
     }
 }
 
 class Hoge @Inject constructor() {
+}
 
+class Fuga @Inject constructor(val hoge: Hoge) {
 }
